@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demostración Hashing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="usuarios">
+            <h1>Base de datos:</h1>
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td>Contraseña Hash</td>
+                </tr>
+                {% for row in rows %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+        <div class="container-2">
+
+            <div class="registrar">
+                <h1>Registrar Usuario</h1>
+                <form action="{{ url_for('registrar')}} " method="POST">
+                    <input name='usuario' type="text" placeholder="Nombre de usuario">  
+                    <input name='contra' type="password" placeholder="Contraseña">
+                    <input type="submit" value="Registrar Usuario">                  
+                </form>
+            </div>
+            
+            <div class="buscar">
+                <h1>Buscar Usuario</h1>
+                <form action="{{ url_for('buscar')}}" method='POST'>
+                    <input name='usuario' type="text" placeholder="Nombre de usuario">
+                    <input type="submit" value="Buscar usuario">
+                    <h3>Usuario buscado: </h3>
+                    <p>{{ usuario }}</p>
+                    <h3>Contraseña Hash: </h3>
+                    <p>{{ hash }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
