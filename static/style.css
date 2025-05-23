@@ -1,0 +1,108 @@
+/* Reset básico y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Sección de usuarios */
+.usuarios {
+    flex: 1;
+    background-color: #d4edda;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios h1 {
+    margin-bottom: 15px;
+    color: #155724;
+}
+
+.usuarios table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.usuarios table td {
+    border: 1px solid #a3cfbb;
+    padding: 10px;
+    text-align: left;
+    background-color: #e9f7ef;
+}
+
+/* Sección de formularios */
+.container-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registrar,
+.buscar {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registrar {
+    background-color: #d1ecf1;
+}
+
+.buscar {
+    background-color: #f8d7da;
+}
+
+.registrar h1,
+.buscar h1 {
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.buscar h3,
+.buscar p {
+    margin-top: 10px;
+}
