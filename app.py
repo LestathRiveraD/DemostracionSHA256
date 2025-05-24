@@ -47,3 +47,7 @@ def buscar():
                 usuario_encontrado_hash = row[1]
             rows.append(row)
     return render_template("index.html", rows=rows, usuario=usuario_encontrado, hash=usuario_encontrado_hash)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
