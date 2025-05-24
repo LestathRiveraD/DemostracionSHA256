@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import *
 import csv
 import os
 from cifrado import registrar_usuario
@@ -19,15 +19,21 @@ def index():
 @app.route('/registrar', methods=['POST'])
 def registrar():
     data = request.form
-    registrar_usuario(data['usuario'], data['contra'])
+    encontrado = False
+    usuario_registrar = data['usuario']
+    usuario_registrar_contra = data['contra']
 
     rows = []
     with open('usuarios.csv', newline='') as csvfile:
         reader = csv.reader(csvfile)
         headers = next(reader)
         for row in reader:
+            if usuario_registrar == row[0]:
+                encontrado = True
             rows.append(row)
-    return render_template("index.html", rows=rows, usuario='', hash='')
+    if not encontrado:
+        registrar_usuario(data['usuario'], data['contra'])
+    return redirect(url_for('index'))
 
 
 @app.route('/buscar', methods=['POST'])
